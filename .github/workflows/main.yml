@@ -37,7 +37,7 @@ jobs:
         run: echo "sonar.host.url=$SONAR_HOST_URL" >> /home/runner/work/Python-POC/Python-POC/sonar-scanner-4.6.2.2472/conf/sonar-scanner.properties
 
       - name: SonarQube Analysis
-        run: sonar-scanner-4.6.2.2472/bin/sonar-scanner -X -Dsonar.projectKey=my-project -Dsonar.sources=. -Dsonar.login=$SONAR_LOGIN
+        run: sonar-scanner-4.6.2.2472/bin/sonar-scanner -X -Dsonar.projectKey=bmw-devops -Dsonar.sources=. -Dsonar.login=$SONAR_LOGIN
         env:
           SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
