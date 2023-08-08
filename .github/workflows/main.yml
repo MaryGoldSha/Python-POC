@@ -32,6 +32,10 @@ jobs:
       - name: set url
         run: SONAR_HOST_URL="http://192.168.29.72:9000"
 
+      - name: show and tell
+        run: echo $SONAR_HOST_URL $SONAR_TOKEN
+     
+
       - name: Configure SonarQube
         run: echo "sonar.host.url=$SONAR_HOST_URL" >> sonar-scanner-4.6.2.2472/conf/sonar-scanner.properties
 
