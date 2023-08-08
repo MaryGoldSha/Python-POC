@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  sonarqube:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
