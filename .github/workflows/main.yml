@@ -48,3 +48,13 @@ jobs:
         env:
           SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - name: Docker Build
+        run: docker build .
+
+      -  name: Docker Push 
+         run: docker push --resgitry
+
+      -name: Docker Trivy
+       run: trivy 
+         
