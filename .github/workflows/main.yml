@@ -24,8 +24,8 @@ jobs:
       - name: Download SonarQube Scanner
         run: curl -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472.zip && unzip sonar-scanner-cli-4.6.2.2472.zip
 
- #     - name: Run Unit Tests
- #       run: python -m unittest discover tests/
+      - name: Run Unit Tests
+        run: python -m unittest discover tests/
 
 
 
