@@ -1,4 +1,4 @@
-from app import hello_bmw
+from src.app import hello_bmw
 
 
 def test_index():
