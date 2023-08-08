@@ -24,14 +24,14 @@ jobs:
       - name: Download SonarQube Scanner
         run: curl -OL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472.zip && unzip sonar-scanner-cli-4.6.2.2472.zip
 
- #     - name: Run Unit Tests
-  #      run: python -m unittest discover tests/
+      - name: Run Unit Tests
+        run: python -m unittest discover tests/
 
       - name: Configure SonarQube
-        run: echo "sonar.host.url=http://192.168.29.72:9000" >> sonar-scanner-4.6.2.2472/conf/sonar-scanner.properties
+        run: echo "sonar.host.url=$SONAR_HOST_URL" >> sonar-scanner-4.6.2.2472/conf/sonar-scanner.properties
 
       - name: SonarQube Analysis
         run: sonar-scanner-4.6.2.2472/bin/sonar-scanner -Dsonar.projectKey=my-project -Dsonar.sources=. -Dsonar.login=$SONAR_LOGIN
         env:
-          SONAR_LOGIN: sqp_e2662787a5505f8f8bf4217658fc6b00d8c9800f
-          SONAR_HOST_URL: http://192.168.29.72:9000
+          SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
