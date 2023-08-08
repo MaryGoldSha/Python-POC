@@ -26,8 +26,11 @@ jobs:
 
  #     - name: Run Unit Tests
  #       run: python -m unittest discover tests/
-      - name: show variables
-        run: echo $SONAR_HOST_URL $SONAR_TOKEN
+      - name: set variables
+        run: echo "sqp_e2662787a5505f8f8bf4217658fc6b00d8c9800f" >> $SONAR_TOKEN
+
+      - name: set url
+        run: echo "http://192.168.29.72:9000" >> $SONAR_HOST_URL
 
       - name: Configure SonarQube
         run: echo "sonar.host.url=$SONAR_HOST_URL" >> sonar-scanner-4.6.2.2472/conf/sonar-scanner.properties
@@ -35,5 +38,5 @@ jobs:
       - name: SonarQube Analysis
         run: sonar-scanner-4.6.2.2472/bin/sonar-scanner -Dsonar.projectKey=my-project -Dsonar.sources=. -Dsonar.login=$SONAR_LOGIN
         env:
-          SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_LOGIN: $SONAR_TOKEN
+          SONAR_HOST_URL: $SONAR_HOST_URL
