@@ -1,6 +1,6 @@
 import unittest
 from flask import Flask
-from app import app
+from app import hello_bmw
 
 class TestFlaskApp(unittest.TestCase):
 
