@@ -36,8 +36,8 @@ jobs:
       - name: Set Up SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
-         ORGANIZATION: "cloudsq"
-         TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_ORGANIZATION: "cloudsq"
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
      
           
       - name: Run SonarCloud Analysis
